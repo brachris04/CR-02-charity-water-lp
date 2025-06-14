@@ -32,13 +32,43 @@ body {
   color: #222;
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
+/* Header: logo and navigation bar */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px 0 0 20px;
+}
+
+/* Logo styling */
+.logo {
+  width: 90px;
+  height: auto;
+  margin-right: 30px;
+}
+
+/* Navigation bar inside a dark blue rounded rectangle */
+.navbar {
+  background: #002D5C; /* Dark blue */
+  border-radius: 40px;
+  padding: 20px 40px;
+  display: flex;
+  gap: 40px;
+}
+
+/* Navigation links */
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 0 10px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+/* Highlight the active page */
+.navbar a.active {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 /* Hero Section Styles */
@@ -74,6 +104,78 @@ section {
   font-size: 1.2em;
   margin-top: 0;
   text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+/* Main content area: two columns */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 60px 40px 0 40px;
+}
+
+/* Left side: text and button */
+.main-text {
+  max-width: 500px;
+}
+
+.main-text h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #002D5C;
+}
+
+.main-text p {
+  font-size: 22px;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* Donate button styling */
+.donate-btn {
+  display: inline-block;
+  background: #002D5C; /* Dark blue */
+  color: #FFD600; /* Yellow */
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px 80px;
+  border-radius: 40px;
+  text-decoration: none;
+  border: none;
+  transition: background 0.2s;
+}
+.donate-btn:hover {
+  background: #014080;
+}
+
+/* Right side: gallery images */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.main-img {
+  width: 300px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.side-images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.small-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /* Story Section Styles */
@@ -176,6 +278,19 @@ section {
   .impact-image {
     width: 90%;    /* Make image take up most of the width */
     max-width: 220px;
+  }
+
+  /* Main content area: stack columns on top of each other */
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 20px;
+  }
+
+  /* Make gallery images smaller */
+  .main-img, .small-img {
+    width: 150px;
+    height: 150px;
   }
 }
 
