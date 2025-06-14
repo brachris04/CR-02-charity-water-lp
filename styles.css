@@ -39,23 +39,40 @@ body {
   padding: 20px 0 0 20px;
 }
 
-/* Logo styling */
-.logo {
-  width: 90px;
-  height: auto;
-  margin-right: 30px;
+/* Full-width blue navbar background */
+.navbar-full {
+  width: 100%;
+  background: #002D5C;
+  padding: 0;
+  margin: 0;
 }
 
-/* Navigation bar inside a dark blue rounded rectangle */
+/* Navigation bar with left-aligned options */
 .navbar {
-  background: #002D5C; /* Dark blue */
-  border-radius: 40px;
-  padding: 20px 40px;
   display: flex;
+  align-items: center;
   gap: 40px;
+  padding: 20px 40px;
+  background: none;
+  border-radius: 0;
+  max-width: 1200px;
+  margin: 0;
+  justify-content: flex-start;
 }
 
-/* Navigation links */
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 12px 0 0 0; /* Reduced top margin for less space below header */
+  padding-left: 40px;
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+}
+
 .navbar a {
   color: #fff;
   text-decoration: none;
@@ -111,7 +128,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 60px 40px 0 40px;
+  margin: 10px 40px 0 40px; /* Reduce top margin to raise text up */
+}
+
+/* Move gallery images further down and to the left */
+.custom-gallery {
+  position: relative;
+  width: 850px;
+  height: 600px;
+  margin: 120px 0 0 -60px; /* Move further down and left */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  left: -120px; /* Shift gallery more to the left */
 }
 
 /* Left side: text and button */
@@ -238,13 +267,103 @@ section {
   margin-bottom: 20px;
 }
 
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
+/* Custom gallery layout for three images, all slightly larger, top right moved up */
+.custom-gallery {
+  position: relative;
+  width: 850px;
+  height: 600px;
+  margin: 120px 0 0 -60px; /* Move further down and left */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  left: -120px; /* Shift gallery more to the left */
+}
 
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
+/* Center large image */
+.center-img {
+  position: absolute;
+  left: 44%; /* More centered */
+  top: 38%;
+  width: 380px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border: 2px solid #000;
+}
+
+/* Top right image, further above */
+.top-right-img {
+  position: absolute;
+  left: 74%; /* More centered */
+  top: -18%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  z-index: 1;
+  border: 2px solid #000;
+}
+
+/* Bottom right image, further below */
+.bottom-right-img {
+  position: absolute;
+  left: 74%; /* More centered */
+  top: 62%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  z-index: 1;
+  border: 2px solid #000;
+}
+
+@media (max-width: 900px) {
+  /* Center navigation bar links */
+  .navbar {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 16px 0;
+    margin: 0;
+  }
+  /* Center the logo below the navbar */
+  .logo-container {
+    justify-content: center;
+    padding-left: 0;
+    margin: 8px 0 0 0; /* Reduce space for mobile as well */
+  }
+  /* Stack gallery images vertically and center them */
+  .custom-gallery {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    margin: 32px 0 0 0;
+    display: flex;
+    left: 0;
+  }
+  .center-img,
+  .top-right-img,
+  .bottom-right-img {
+    position: static;
+    left: auto;
+    top: auto;
+    width: 80vw;
+    max-width: 320px;
+    height: auto;
+    margin: 0 0 14px 0;
+    display: block;
+    transform: none;
+  }
+  .top-right-img,
+  .bottom-right-img {
+    max-width: 220px;
+  }
+}
+
 @media (max-width: 600px) {
   /* Make hero section padding smaller on small screens */
   .hero {
@@ -291,6 +410,21 @@ section {
   .main-img, .small-img {
     width: 150px;
     height: 150px;
+  }
+  .main-text {
+    max-width: 95vw;
+    font-size: 16px;
+  }
+  .center-img,
+  .top-right-img,
+  .bottom-right-img {
+    width: 90vw;
+    max-width: 140px;
+    margin: 0 0 10px 0;
+  }
+  .top-right-img,
+  .bottom-right-img {
+    max-width: 90px;
   }
 }
 
